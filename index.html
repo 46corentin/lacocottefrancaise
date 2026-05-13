@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Cocotte Française — Premium French Cast Iron / Fransk gjutjärnsgryta i premiumklass</title>
+<meta name="description" content="The only French enameled cast-iron casserole with patented cold side handles. PFAS-free, made in France." />
+<style>
+  :root {
+    --bg: #fbf7f2;
+    --ink: #1b1b1b;
+    --muted: #5c5c5c;
+    --accent: #8a1c1c;
+    --accent-dark: #6b1414;
+    --line: #e5ddd1;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-weight: 600; letter-spacing: -0.01em; margin: 0 0 0.5em; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  h3 { font-size: 1.15rem; }
+  p { margin: 0 0 1em; color: var(--ink); }
+  a { color: var(--accent); }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 247, 242, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px;
+  }
+  .brand {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  .brand span { color: var(--accent); }
+  .lang-toggle {
+    display: inline-flex; border: 1px solid var(--line);
+    border-radius: 999px; overflow: hidden;
+    background: #fff;
+  }
+  .lang-toggle button {
+    background: none; border: none;
+    padding: 6px 14px; font: inherit; cursor: pointer;
+    color: var(--muted);
+    font-size: 0.85rem; letter-spacing: 0.06em;
+  }
+  .lang-toggle button.active {
+    background: var(--ink); color: #fff;
+  }
+
+  /* Hero */
+  .hero {
+    max-width: 1180px; margin: 0 auto;
+    padding: 60px 24px 40px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+    align-items: center;
+  }
+  .hero-text .eyebrow {
+    display: inline-block; font-size: 0.78rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px;
+    border-left: 2px solid var(--accent); padding-left: 10px;
+  }
+  .hero-text .lead {
+    font-size: 1.1rem; color: var(--muted); margin-bottom: 28px;
+  }
+  .hero-image {
+    border-radius: 6px; overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.25);
+  }
+  .hero-image img { width: 100%; display: block; height: auto; }
+  .cta {
+    display: inline-block; background: var(--accent); color: #fff;
+    text-decoration: none; padding: 14px 28px;
+    font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+    border-radius: 2px; transition: background .2s ease;
+  }
+  .cta:hover { background: var(--accent-dark); }
+  .cta-secondary {
+    display: inline-block; margin-left: 12px;
+    color: var(--ink); text-decoration: underline;
+    font-size: 0.9rem; letter-spacing: 0.04em;
+  }
+
+  /* Sections */
+  section { padding: 56px 24px; }
+  .container { max-width: 1180px; margin: 0 auto; }
+  .section-title { text-align: center; margin-bottom: 12px; }
+  .section-sub {
+    text-align: center; color: var(--muted);
+    max-width: 640px; margin: 0 auto 48px;
+  }
+
+  /* Benefits */
+  .benefits {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .benefit {
+    background: var(--card);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 28px; text-align: left;
+  }
+  .benefit .icon {
+    width: 44px; height: 44px;
+    border-radius: 50%; background: #f5ebdc;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 1.3rem;
+  }
+  .benefit p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  /* Gallery */
+  .gallery {
+    background: #ffffff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .gallery-grid img {
+    width: 100%; aspect-ratio: 1/1; object-fit: cover;
+    border-radius: 4px; display: block;
+  }
+
+  /* Compatibility band */
+  .compat {
+    background: #1b1b1b; color: #fff; text-align: center;
+  }
+  .compat h2 { color: #fff; }
+  .compat p { color: #c8c2b8; max-width: 620px; margin: 0 auto; }
+
+  /* Order */
+  .order {
+    background: #f0e7d8;
+  }
+  .order-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    align-items: start;
+  }
+  .order-info p { color: var(--muted); }
+  .order-info .price {
+    font-size: 2.4rem; font-weight: 600; color: var(--ink);
+    margin: 18px 0 4px;
+  }
+  .order-info .price-note {
+    color: var(--muted); font-size: 0.9rem; margin-bottom: 24px;
+  }
+  form.order-form {
+    background: #fff; padding: 28px; border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block; font-size: 0.82rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 10px 12px;
+    border: 1px solid var(--line); border-radius: 3px;
+    font: inherit; background: #fbf7f2;
+    color: var(--ink);
+  }
+  .field textarea { min-height: 80px; resize: vertical; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .submit-btn {
+    width: 100%; background: var(--accent); color: #fff;
+    border: none; padding: 14px; font: inherit;
+    font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px; margin-top: 8px;
+    transition: background .2s ease;
+  }
+  .submit-btn:hover { background: var(--accent-dark); }
+  .form-note { font-size: 0.8rem; color: var(--muted); margin-top: 10px; text-align: center; }
+
+  /* Footer */
+  footer {
+    background: #1b1b1b; color: #c8c2b8;
+    padding: 36px 24px; text-align: center;
+    font-size: 0.85rem; letter-spacing: 0.04em;
+  }
+  footer a { color: #fff; text-decoration: none; margin: 0 10px; }
+  footer .contact { margin-bottom: 12px; }
+
+  /* Language visibility */
+  [data-lang]:not(.visible) { display: none; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 20px 20px; gap: 28px; }
+    .benefits { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .order-grid { grid-template-columns: 1fr; gap: 28px; }
+    .row-2 { grid-template-columns: 1fr; }
+    section { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="brand">La <span>Cocotte</span> Française</a>
+    <div class="lang-toggle" role="tablist" aria-label="Language">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-sv" onclick="setLang('sv')">SV</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <!-- EN -->
+    <div data-lang="en" class="visible">
+      <span class="eyebrow">Made in France · Since the Vosges</span>
+      <h1>The only cast-iron casserole with cold side handles.</h1>
+      <p class="lead">Enameled cast iron, crafted in our French workshops. PFAS-free and built around a patented innovation that keeps the handles cool — even after hours on the stove.</p>
+      <a href="#order" class="cta">Order yours</a>
+      <a href="#benefits" class="cta-secondary">Why it matters →</a>
+    </div>
+    <!-- SV -->
+    <div data-lang="sv">
+      <span class="eyebrow">Tillverkad i Frankrike · Från Vogeserna</span>
+      <h1>Den enda gjutjärnsgrytan med kalla sidohandtag.</h1>
+      <p class="lead">Emaljerat gjutjärn, hantverk från våra franska verkstäder. PFAS-fri och byggd kring en patenterad innovation som håller handtagen svala — även efter timmar på spisen.</p>
+      <a href="#order" class="cta">Beställ din gryta</a>
+      <a href="#benefits" class="cta-secondary">Varför just denna? →</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://www.lacocottefrancaise.fr/wp-content/uploads/go-x/u/3cad6df4-a01c-4abf-9bb1-d22ab1770738/image-1200x1207.png" alt="La Cocotte Française - enameled cast iron casserole" />
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="container">
+    <!-- EN -->
+    <div data-lang="en" class="visible">
+      <h2 class="section-title">Why La Cocotte Française</h2>
+      <p class="section-sub">A French icon, reinvented with care for your health, your kitchen, and the way you cook.</p>
+    </div>
+    <!-- SV -->
+    <div data-lang="sv">
+      <h2 class="section-title">Därför La Cocotte Française</h2>
+      <p class="section-sub">En fransk klassiker, omtolkad med omtanke om din hälsa, ditt kök och din matlagning.</p>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <div class="icon">✋</div>
+        <div data-lang="en" class="visible">
+          <h3>Cold handles, always</h3>
+          <p>Our patented side handles stay cool to the touch — no more oven mitts, no more burns. Move the casserole straight from stove to table.</p>
+        </div>
+        <div data-lang="sv">
+          <h3>Alltid svala handtag</h3>
+          <p>Våra patenterade sidohandtag förblir svala — inga grytlappar, inga brännskador. Flytta grytan direkt från spis till bord.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">🌿</div>
+        <div data-lang="en" class="visible">
+          <h3>PFAS-free &amp; healthy</h3>
+          <p>Noble materials only: ferrous alloys and high-quality enamel. No "forever chemicals". Safe for your family, every day.</p>
+        </div>
+        <div data-lang="sv">
+          <h3>PFAS-fri &amp; hälsosam</h3>
+          <p>Endast ädla material: järnlegeringar och högkvalitativ emalj. Inga "evighetskemikalier". Tryggt för familjen, varje dag.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">🇫🇷</div>
+        <div data-lang="en" class="visible">
+          <h3>Crafted in France</h3>
+          <p>Cast in one of France's finest foundries, hand-enameled in a renowned Vosges workshop. Generations of know-how in every piece.</p>
+        </div>
+        <div data-lang="sv">
+          <h3>Hantverk från Frankrike</h3>
+          <p>Gjuten i ett av Frankrikes finaste gjuterier, handemaljerad i en välrenommerad verkstad i Vogeserna. Generationer av hantverkskunnande i varje gryta.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">🔆</div>
+        <div data-lang="en" class="visible">
+          <h3>Even, steady heat</h3>
+          <p>Thick cast iron holds and diffuses heat beautifully — slow braises, perfect sears, gentle simmers. Premium-grade finish, careful packaging.</p>
+        </div>
+        <div data-lang="sv">
+          <h3>Jämn och stabil värme</h3>
+          <p>Tjockt gjutjärn lagrar och fördelar värmen perfekt — för långkok, fina stekytor och varsam sjudning. Premiumfinish och omsorgsfull förpackning.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">🔥</div>
+        <div data-lang="en" class="visible">
+          <h3>Works on any stove</h3>
+          <p>Induction, gas, electric, ceramic, oven — full compatibility, no exceptions. Use the cookware and utensils you already love.</p>
+        </div>
+        <div data-lang="sv">
+          <h3>Fungerar på alla spisar</h3>
+          <p>Induktion, gas, el, keramik, ugn — full kompatibilitet, inga undantag. Använd köksredskapen du redan älskar.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">✨</div>
+        <div data-lang="en" class="visible">
+          <h3>Contemporary design</h3>
+          <p>Sleek lines, a refined silhouette, premium presence. Equally at home in a modern kitchen or on a dinner-party table.</p>
+        </div>
+        <div data-lang="sv">
+          <h3>Modern design</h3>
+          <p>Eleganta linjer, en förfinad siluett och premiumkänsla. Lika hemma i ett modernt kök som på middagsbordet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <div data-lang="en" class="visible">
+      <h2 class="section-title">A closer look</h2>
+      <p class="section-sub">Built by artisans, designed for everyday excellence.</p>
+    </div>
+    <div data-lang="sv">
+      <h2 class="section-title">På nära håll</h2>
+      <p class="section-sub">Byggd av hantverkare, designad för vardaglig kvalitet.</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://www.lacocottefrancaise.fr/wp-content/uploads/go-x/u/891a0f37-2014-4afa-bc83-7cc09416a8a2/image-576x384.jpg" alt="La Cocotte Française detail" />
+      <img src="https://www.lacocottefrancaise.fr/wp-content/uploads/go-x/u/f49211bb-ecec-41a7-b9c9-f1c91d53161c/image-576x384.jpg" alt="La Cocotte Française side handles" />
+      <img src="https://www.lacocottefrancaise.fr/wp-content/uploads/go-x/u/fdd1c17c-e8bb-403e-b3c7-300c4ed8e83e/l0,t0,w1250,h1250/image-768x768.png" alt="Compatible with induction, gas, electric" />
+    </div>
+  </div>
+</section>
+
+<!-- COMPATIBILITY BAND -->
+<section class="compat">
+  <div class="container">
+    <div data-lang="en" class="visible">
+      <h2>Compatible with every cooktop. No exceptions.</h2>
+      <p>Induction · Gas · Electric · Ceramic · Oven — La Cocotte Française works with whatever you already have.</p>
+    </div>
+    <div data-lang="sv">
+      <h2>Kompatibel med alla spisar. Inga undantag.</h2>
+      <p>Induktion · Gas · El · Keramik · Ugn — La Cocotte Française fungerar med det du redan har.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order">
+  <div class="container">
+    <div class="order-grid">
+      <div class="order-info">
+        <div data-lang="en" class="visible">
+          <span class="eyebrow" style="display:inline-block;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);">Place your order</span>
+          <h2 style="margin-top:14px;">Bring La Cocotte Française home.</h2>
+          <p>Fill in the form and we'll confirm your order, shipping details and payment within one business day. Ships to Sweden and across Europe.</p>
+          <div class="price">From 2 750 kr</div>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;color:var(--muted);font-size:0.95rem;">
+            <li>• Cocotte 26 cm — 2 990 kr <span style="color:#999;">(Red, Blue)</span></li>
+            <li>• Cocotte 33 cm — 3 990 kr <span style="color:#999;">(Black, Red, Blue)</span></li>
+            <li>• Faitout 26 cm — 2 750 kr <span style="color:#999;">(Black, Red, Blue)</span></li>
+          </ul>
+        </div>
+        <div data-lang="sv">
+          <span class="eyebrow" style="display:inline-block;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);">Lägg din beställning</span>
+          <h2 style="margin-top:14px;">Ta hem La Cocotte Française.</h2>
+          <p>Fyll i formuläret så bekräftar vi din beställning, frakt och betalning inom en arbetsdag. Vi levererar till Sverige och övriga Europa.</p>
+          <div class="price">Från 2 750 kr</div>
+          <ul style="list-style:none;padding:0;margin:0 0 16px;color:var(--muted);font-size:0.95rem;">
+            <li>• Gryta 26 cm — 2 990 kr <span style="color:#999;">(Röd, Blå)</span></li>
+            <li>• Gryta 33 cm — 3 990 kr <span style="color:#999;">(Svart, Röd, Blå)</span></li>
+            <li>• Faitout 26 cm — 2 750 kr <span style="color:#999;">(Svart, Röd, Blå)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="order-form" onsubmit="return submitOrder(event)">
+        <div class="field">
+          <label data-lang="en" class="visible" for="name">Full name</label>
+          <label data-lang="sv" for="name">Fullständigt namn</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label data-lang="en" class="visible" for="email">Email</label>
+            <label data-lang="sv" for="email">E-post</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label data-lang="en" class="visible" for="phone">Phone</label>
+            <label data-lang="sv" for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+        </div>
+        <div class="field">
+          <label data-lang="en" class="visible" for="product">Product</label>
+          <label data-lang="sv" for="product">Produkt</label>
+          <select id="product" name="product" onchange="updateColors()">
+            <option value="LCF-26" data-price="2990" data-colors="Red,Blue" data-colors-sv="Röd,Blå">Cocotte 26 cm — 2 990 kr</option>
+            <option value="LCF-33" data-price="3990" data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Cocotte 33 cm — 3 990 kr</option>
+            <option value="LCF-F26" data-price="2750" data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Faitout 26 cm — 2 750 kr</option>
+          </select>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label data-lang="en" class="visible" for="color">Color</label>
+            <label data-lang="sv" for="color">Färg</label>
+            <select id="color" name="color"></select>
+          </div>
+          <div class="field">
+            <label data-lang="en" class="visible" for="qty">Quantity</label>
+            <label data-lang="sv" for="qty">Antal</label>
+            <input type="number" id="qty" name="qty" value="1" min="1" max="10" />
+          </div>
+        </div>
+        <div class="field">
+          <label data-lang="en" class="visible" for="address">Shipping address</label>
+          <label data-lang="sv" for="address">Leveransadress</label>
+          <textarea id="address" name="address" required></textarea>
+        </div>
+        <div class="field">
+          <label data-lang="en" class="visible" for="notes">Notes (optional)</label>
+          <label data-lang="sv" for="notes">Meddelande (valfritt)</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span data-lang="en" class="visible">Place order</span>
+          <span data-lang="sv">Lägg beställning</span>
+        </button>
+        <p class="form-note">
+          <span data-lang="en" class="visible">By placing your order you agree to be contacted for confirmation. No payment is taken at this step.</span>
+          <span data-lang="sv">Genom att lägga din beställning godkänner du att bli kontaktad för bekräftelse. Ingen betalning sker i detta steg.</span>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="contact">
+    <a href="https://www.instagram.com/lacocottefrancaise.fr/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div>© La Cocotte Française · <a href="https://www.lacocottefrancaise.fr/" target="_blank" rel="noopener">lacocottefrancaise.fr</a></div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.getAttribute('data-lang') === lang);
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-sv').classList.toggle('active', lang === 'sv');
+    try { localStorage.setItem('lcf_lang', lang); } catch (e) {}
+  }
+
+  // Restore preference
+  try {
+    const saved = localStorage.getItem('lcf_lang');
+    if (saved === 'sv' || saved === 'en') setLang(saved);
+  } catch (e) {}
+
+  // Populate color dropdown based on selected product
+  function updateColors() {
+    const productSel = document.getElementById('product');
+    const colorSel = document.getElementById('color');
+    const opt = productSel.options[productSel.selectedIndex];
+    const lang = document.documentElement.lang || 'en';
+    const colors = lang === 'sv'
+      ? opt.getAttribute('data-colors-sv').split(',')
+      : opt.getAttribute('data-colors').split(',');
+    colorSel.innerHTML = '';
+    colors.forEach(c => {
+      const o = document.createElement('option');
+      o.value = c; o.textContent = c;
+      colorSel.appendChild(o);
+    });
+  }
+  updateColors();
+
+  // Re-populate color labels when language changes
+  const origSetLang = setLang;
+  setLang = function(lang) {
+    origSetLang(lang);
+    updateColors();
+  };
+
+  function submitOrder(e) {
+    e.preventDefault();
+    const lang = document.documentElement.lang || 'en';
+    const f = e.target;
+    const productSel = document.getElementById('product');
+    const opt = productSel.options[productSel.selectedIndex];
+    const sku = opt.value;
+    const price = opt.getAttribute('data-price');
+    const productLabel = opt.textContent;
+
+    const subject = encodeURIComponent(
+      lang === 'sv'
+        ? 'Ny beställning – La Cocotte Française'
+        : 'New order – La Cocotte Française'
+    );
+    const body = encodeURIComponent(
+      (lang === 'sv' ? 'Namn: ' : 'Name: ') + f.name.value + '\n' +
+      (lang === 'sv' ? 'E-post: ' : 'Email: ') + f.email.value + '\n' +
+      (lang === 'sv' ? 'Telefon: ' : 'Phone: ') + f.phone.value + '\n\n' +
+      (lang === 'sv' ? 'Produkt: ' : 'Product: ') + productLabel + ' (' + sku + ')\n' +
+      (lang === 'sv' ? 'Färg: ' : 'Color: ') + f.color.value + '\n' +
+      (lang === 'sv' ? 'Antal: ' : 'Quantity: ') + f.qty.value + '\n' +
+      (lang === 'sv' ? 'Pris/st: ' : 'Unit price: ') + price + ' kr\n\n' +
+      (lang === 'sv' ? 'Adress:\n' : 'Address:\n') + f.address.value + '\n\n' +
+      (lang === 'sv' ? 'Meddelande:\n' : 'Notes:\n') + f.notes.value
+    );
+    window.location.href = 'mailto:lacocottefrancaise@gmail.com?subject=' + subject + '&body=' + body;
+    return false;
+  }
+</script>
+</body>
+</html>
