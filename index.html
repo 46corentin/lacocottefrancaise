@@ -383,8 +383,8 @@
           <p>Fill in the form and we'll confirm your order, shipping details and payment within one business day. Ships to Sweden and across Europe.</p>
           <div class="price">From 2 750 kr</div>
           <ul style="list-style:none;padding:0;margin:0 0 16px;color:var(--muted);font-size:0.95rem;">
-            <li>• Cocotte 26 cm — 2 990 kr <span style="color:#999;">(Red, Blue)</span></li>
-            <li>• Cocotte 33 cm — 3 990 kr <span style="color:#999;">(Black, Red, Blue)</span></li>
+            <li>• Casserole 26 cm — 2 990 kr <span style="color:#999;">(Black, Red, Blue)</span></li>
+            <li>• Casserole 33 cm — 3 990 kr <span style="color:#999;">(Black, Red, Blue)</span></li>
             <li>• Faitout 26 cm — 2 750 kr <span style="color:#999;">(Black, Red, Blue)</span></li>
           </ul>
         </div>
@@ -394,7 +394,7 @@
           <p>Fyll i formuläret så bekräftar vi din beställning, frakt och betalning inom en arbetsdag. Vi levererar till Sverige och övriga Europa.</p>
           <div class="price">Från 2 750 kr</div>
           <ul style="list-style:none;padding:0;margin:0 0 16px;color:var(--muted);font-size:0.95rem;">
-            <li>• Gryta 26 cm — 2 990 kr <span style="color:#999;">(Röd, Blå)</span></li>
+            <li>• Gryta 26 cm — 2 990 kr <span style="color:#999;">(Svart, Röd, Blå)</span></li>
             <li>• Gryta 33 cm — 3 990 kr <span style="color:#999;">(Svart, Röd, Blå)</span></li>
             <li>• Faitout 26 cm — 2 750 kr <span style="color:#999;">(Svart, Röd, Blå)</span></li>
           </ul>
@@ -423,9 +423,18 @@
           <label data-lang="en" class="visible" for="product">Product</label>
           <label data-lang="sv" for="product">Produkt</label>
           <select id="product" name="product" onchange="updateColors()">
-            <option value="LCF-26" data-price="2990" data-colors="Red,Blue" data-colors-sv="Röd,Blå">Cocotte 26 cm — 2 990 kr</option>
-            <option value="LCF-33" data-price="3990" data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Cocotte 33 cm — 3 990 kr</option>
-            <option value="LCF-F26" data-price="2750" data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Faitout 26 cm — 2 750 kr</option>
+            <option value="LCF-26" data-price="2990"
+                    data-label-en="Casserole 26 cm — 2 990 kr"
+                    data-label-sv="Gryta 26 cm — 2 990 kr"
+                    data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Casserole 26 cm — 2 990 kr</option>
+            <option value="LCF-33" data-price="3990"
+                    data-label-en="Casserole 33 cm — 3 990 kr"
+                    data-label-sv="Gryta 33 cm — 3 990 kr"
+                    data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Casserole 33 cm — 3 990 kr</option>
+            <option value="LCF-F26" data-price="2750"
+                    data-label-en="Faitout 26 cm — 2 750 kr"
+                    data-label-sv="Faitout 26 cm — 2 750 kr"
+                    data-colors="Black,Red,Blue" data-colors-sv="Svart,Röd,Blå">Faitout 26 cm — 2 750 kr</option>
           </select>
         </div>
         <div class="row-2">
@@ -487,6 +496,16 @@
     if (saved === 'sv' || saved === 'en') setLang(saved);
   } catch (e) {}
 
+  // Update product labels in dropdown to match current language
+  function updateProductLabels() {
+    const lang = document.documentElement.lang || 'en';
+    const productSel = document.getElementById('product');
+    Array.from(productSel.options).forEach(opt => {
+      const label = opt.getAttribute(lang === 'sv' ? 'data-label-sv' : 'data-label-en');
+      if (label) opt.textContent = label;
+    });
+  }
+
   // Populate color dropdown based on selected product
   function updateColors() {
     const productSel = document.getElementById('product');
@@ -503,12 +522,14 @@
       colorSel.appendChild(o);
     });
   }
+  updateProductLabels();
   updateColors();
 
-  // Re-populate color labels when language changes
+  // Re-populate product and color labels when language changes
   const origSetLang = setLang;
   setLang = function(lang) {
     origSetLang(lang);
+    updateProductLabels();
     updateColors();
   };
 
